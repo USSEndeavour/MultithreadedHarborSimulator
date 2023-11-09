@@ -65,8 +65,7 @@ public class Port<T extends AbstractDock> {
             System.out.println("Unloading Ship#" + ship.getId() + " ...");
 
             for (int i = 0; i < ship.getCurrentCapacity(); i++) {
-                System.out.println("Unloading container # " + i);
-                System.out.println();
+                System.out.println("Unloading container # " + i + "\n");
                 ship.unloadContainer();
                 addContainer(); // Add the container to the port's capacity.
 
@@ -92,7 +91,7 @@ public class Port<T extends AbstractDock> {
      * Adds a container to the port's current capacity, ensuring the capacity does not exceed the maximum.
      * @throws ContainerOverflowException If adding a container exceeds the port's maximum capacity.
      */
-    public synchronized void addContainer() throws ContainerOverflowException {
+    private synchronized void addContainer() throws ContainerOverflowException {
         if (currentCapacity == MAX_PORT_CAPACITY) {
             throw new ContainerOverflowException("The port storage is full of containers");
         }

@@ -38,7 +38,7 @@ public class DockPool<T extends AbstractDock> {
             Thread.currentThread().interrupt(); // Handle the InterruptedException.
         }
         // If a resource is not acquired, throw a ResourceException.
-        throw new ResourceException("Could not acquire a dock within " + maxWaitMillis + " milliseconds.");
+        throw new ResourceException("Could not acquire a dock within " + maxWaitMillis + " seconds.");
     }
 
     // Method to release a resource back to the pool.
